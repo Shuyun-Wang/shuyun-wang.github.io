@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="MatAnyone-E: Sparse Memory Propagation for Efficient High-Resolution Video Matting">
+<title>MatAnyone-E</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarpanch:wght@700;800&family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+<nav class="topnav" aria-label="Main">
+ <a class="navicon" href="#" aria-label="Home"><svg viewBox="0 0 576 512" aria-hidden="true"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/></svg></a>
+ <div class="dd" id="dd"><button type="button" class="ddbtn" aria-expanded="false" aria-haspopup="true">More Research<svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M5.3 7.3a1 1 0 0 1 1.4 0L10 10.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 0-1.4z"/></svg></button>
+  <div class="ddmenu" role="menu"><a role="menuitem" href="#" aria-current="page">MatAnyone-E</a><a role="menuitem" href="https://pq-yang.github.io/projects/MatAnyone2/">MatAnyone 2</a><a role="menuitem" href="https://pq-yang.github.io/projects/MatAnyone/">MatAnyone</a></div></div>
+</nav>
+<header class="wrap">
+ <h1><span class="t">MatAnyone-E</span><svg class="bolt" viewBox="0 0 24 24" role="img" aria-label="accelerated"><path d="M13.2 1.8 4.6 13.3c-.4.5 0 1.2.6 1.2h5.3l-1.4 7.4c-.1.7.8 1.1 1.2.5l8.6-11.5c.4-.5 0-1.2-.6-1.2H13l1.4-7.4c.1-.7-.8-1.1-1.2-.5Z"/></svg></h1>
+ <p class="subtitle">Sparse Memory Propagation for Efficient High‑Resolution Video Matting</p>
+ <p class="authors"><span><span class="au">Shuyun Wang</span><sup>1,2</sup>,</span><span><a href="https://shangchenzhou.com/" class="au" target="_blank" rel="noopener">Shangchen Zhou</a><sup>2†</sup>,</span><span><a href="https://pq-yang.github.io/" class="au" target="_blank" rel="noopener">Peiqing Yang</a><sup>2</sup>,</span><span><a href="https://ykdai.github.io/" class="au" target="_blank" rel="noopener">Yuekun Dai</a><sup>2</sup>,</span><span><a href="https://xinyu-au.github.io/" class="au" target="_blank" rel="noopener">Xin Yu</a><sup>3*</sup>,</span><span><a href="https://www.mmlab-ntu.com/person/ccloy/" class="au" target="_blank" rel="noopener">Chen Change Loy</a><sup>2*</sup></span></p>
+ <p class="affil"><a href="https://uq.edu.au"><sup>1</sup>The University of Queensland</a><a href="https://www.ntu.edu.sg"><sup>2</sup>S-Lab, Nanyang Technological University</a><a href="https://www.adelaide.edu.au"><sup>3</sup>University of Adelaide</a></p>
+ <p class="marks">† Project lead &nbsp;·&nbsp; * Corresponding authors</p>
+ <div class="links"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V9h5.5L13 3.5ZM8 13h8v1.6H8V13Zm0 3.5h8v1.6H8v-1.6Z"/></svg>arXiv <small>soon</small></span><a href="https://github.com/Shuyun-Wang/MatAnyone-E" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.72 1.22 1.88.87 2.34.66.07-.52.28-.87.51-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.83-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>Code</a><span><img class="hf" src="data:image/png;base64,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" alt="">Demo <small>soon</small></span><a href="#demo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.7 2.7 0 0 0-1.9-1.9C18 4.8 12 4.8 12 4.8s-6 0-7.7.5A2.7 2.7 0 0 0 2.4 7.2 28 28 0 0 0 2 12a28 28 0 0 0 .4 4.8 2.7 2.7 0 0 0 1.9 1.9c1.7.5 7.7.5 7.7.5s6 0 7.7-.5a2.7 2.7 0 0 0 1.9-1.9A28 28 0 0 0 22 12a28 28 0 0 0-.4-4.8ZM10 15.1V8.9l5.2 3.1L10 15.1Z"/></svg>Video</a></div>
+</header>
+
+<main class="wrap">
+ <div class="teaser bleed"><video src="static/videos/speed_race.mp4" poster="static/images/speed_race_poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="4K speed race on one H200, both with torch.compile: MatAnyone 2 at 2.3 FPS, MatAnyone-E at 28.6 FPS, each lane played at its measured 3840 by 2160 throughput on a 3840 by 2160 clip"></video></div>
+ <p class="tagline"><b>MatAnyone-E (C.)</b>, compiled with torch.compile, mattes <b>native 4K</b> video at <b class="g">28.6&nbsp;FPS</b> on a single H200. That is <b>12×</b> faster than MatAnyone&nbsp;2&nbsp;(C.), and it needs only <b>3.1&nbsp;GB</b> of GPU memory.</p>
+
+ <section id="abstract">
+  <h2>Abstract</h2>
+  <div class="prose"><p>High-resolution video matting requires preserving fine details, such as hair strands and soft transparency, while maintaining consistency across frames. Memory-based methods achieve strong matting quality by matching current-frame features with information stored from earlier frames, but this process becomes increasingly costly as resolution grows. We present <span class="nm">MatAnyone-E</span>, an efficient extension of MatAnyone 2 that focuses computation where it is most needed. Our approach first performs <b>low-resolution propagation</b> to identify uncertain regions that require closer inspection and the memory candidates most relevant to them. It then performs <b>high-resolution matching only for these regions</b> using the selected memory, while reusing low-resolution matching results elsewhere. This strategy reduces both the number of locations requiring detailed matching and the amount of memory searched, while preserving the information needed to produce a complete matte. We further reduce the cost of generating high-resolution mattes with a <b>lightweight decoder</b> designed around measured runtime bottlenecks and trained to reproduce the original decoder's representations. Experiments show that <span class="nm">MatAnyone-E</span> maintains matting quality comparable to MatAnyone 2 while achieving an estimated <b>7.4× inference speedup</b> and reducing peak GPU memory usage to <b>7.6%</b> of MatAnyone 2 at 4K. With compilation-enabled inference on a single NVIDIA H200 GPU, it reaches <b>73.07 FPS at 1080p</b> and <b>28.62 FPS at 4K</b>.</p></div>
+ </section>
+
+ <section id="method">
+  <h2>Method</h2>
+  <figure class="figframe"><img src="static/images/method.png" alt="MatAnyone-E overview: encoder, Sparse Memory Propagation (low-resolution propagation, query pruning, memory pruning, high-resolution propagation), object transformer and lightweight decoder" loading="lazy" width="2400" height="1146"></figure>
+  <div class="prose"><p><span class="nm">MatAnyone-E</span> keeps the architecture of MatAnyone 2 and replaces the two parts whose cost grows fastest with resolution. <b>Sparse Memory Propagation</b> first runs a cheap low-resolution pass. Its uncertainty selects the query locations that need detailed matching (<b>query pruning</b>), and its affinities select the memory most relevant to them (<b>memory pruning</b>). High-resolution matching then runs only on these query–memory pairs, and the upsampled low-resolution readout is reused everywhere else. A <b>lightweight decoder</b>, designed from stage-wise latency profiling and trained with feature distillation from the original decoder, further cuts the cost of decoding high-resolution mattes.</p></div>
+ </section>
+
+ <section id="results">
+  <h2>Results at native resolution</h2>
+  <div style="height:26px"></div>
+  <div class="card bleed">
+   <div class="stagebox"><div class="stage" id="g"><video class="vi" muted playsinline loop preload="auto"></video><video class="vo vg" muted playsinline loop preload="auto"></video><video class="vo va" muted playsinline loop preload="none"></video><div class="cmpline"><span class="knob"></span></div><span class="tag l"></span><span class="tag r"></span><div class="ld" id="ld" hidden><div class="ldin" role="status"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="tr" cx="20" cy="20" r="17"/><circle class="pg" cx="20" cy="20" r="17"/></svg><span class="lt"></span><span class="lm"></span></div></div></div></div>
+   <div class="row"><div class="seg" id="vs"><button type="button" data-m="cmp" aria-pressed="true"><span class="lg">Input | Matte</span><span class="sh">Compare</span></button><button type="button" data-m="0">Input</button><button type="button" data-m="1"><span class="lg">Green screen</span><span class="sh">Green</span></button><button type="button" data-m="2">Alpha</button></div><div class="rside"><button type="button" class="zbtn" id="zoom" aria-pressed="false" title="Show the video at its real pixel size; scroll to move around">1:1 pixels</button><span class="meta" id="gm"></span></div></div>
+   <div class="pills" id="pills"></div>
+  </div>
+ </section>
+
+ <section id="gate">
+  <h2>Where the computation goes</h2>
+  <div style="height:26px"></div>
+  <div class="card gw">
+   <p class="inhint">Click anywhere on the frame to see where that query reads from memory.</p>
+   <div class="row toolbar"><div class="ctrls">
+     <div class="grp"><span class="lbl">Gate</span><div class="seg" id="gseg"><button type="button" data-g="1" aria-pressed="true">On</button><button type="button" data-g="0">Off</button></div></div>
+     <div class="grp"><span class="lbl">Memory</span><div class="seg" id="pseg"><button type="button" data-p="0">All</button><button type="button" data-p="1" aria-pressed="true">After pruning · 15%</button></div></div></div>
+    <div class="legend"><span>attention (log) 10<sup>−4</sup> <i class="rp" id="rampbar" style="margin:0 6px"></i> 10<sup>−1</sup></span></div></div>
+   <div class="vis" id="vis"><div class="qbox" id="qbox"><canvas id="qc" width="1280" height="720"></canvas><span class="qtag" id="qtag">Query frame</span>
+     <span class="qlegend"><span><i class="sq"></i>gated · refined at full res</span><span><i class="dt"></i>other query</span><span><i class="rg"></i>selected</span></span></div></div>
+   <div class="nums" id="nums"></div>
+  </div>
+ </section>
+
+ <section>
+  <h2>Efficiency &amp; Accuracy</h2>
+  <div class="card" style="margin-top:30px">
+   <div class="nums headline"><div><b>7.4×</b><span>faster than MatAnyone 2 at 4K</span></div><div><b>13.1×</b><span>less peak GPU memory than MatAnyone 2 at 4K</span></div><div><b>28.6 FPS</b><span>native 4K on one H200 (C.)</span></div></div>
+   <div class="cgroups">
+    <div class="cgroup">
+     <div class="cgh"><div><b>Against MatAnyone 2</b><span>A800-SXM4-80GB</span></div><span class="clegend"><span><i style="background:var(--c-ma2)"></i>MatAnyone 2</span><span><i style="background:var(--c-e)"></i>MatAnyone-E</span><span><i style="background:var(--c-ec)"></i>MatAnyone-E (C.)</span></span></div>
+     <div class="charts">
+      <figure class="chart"><figcaption><b>Frames per second (FPS) ↑</b></figcaption>
+       <svg id="c1" viewBox="0 0 560 232" role="img" aria-label="Frames per second of MatAnyone 2, MatAnyone-E and compiled MatAnyone-E on A800 by input resolution, with the speed-up over MatAnyone 2"></svg></figure>
+      <figure class="chart"><figcaption><b>Peak GPU memory (GB) ↓</b></figcaption>
+       <svg id="c2" viewBox="0 0 560 232" role="img" aria-label="Peak GPU memory of MatAnyone 2, MatAnyone-E and compiled MatAnyone-E on A800 by input resolution, with the memory reduction relative to MatAnyone 2"></svg></figure>
+     </div>
+    </div>
+    <div class="cgroup">
+     <div class="cgh"><div><b>Real time across GPUs</b><span>MatAnyone-E (C.) frames per second (FPS) · dashed line = 25 FPS</span></div><span class="clegend"><span><i style="background:var(--c-ec)"></i>MatAnyone-E (C.)</span></span></div>
+     <div class="charts">
+      <figure class="chart"><figcaption><b>RTX 3090 · consumer</b></figcaption>
+       <svg id="c3090" viewBox="0 0 560 200" role="img" aria-label="Compiled MatAnyone-E frames per second on RTX 3090 by input resolution"></svg></figure>
+      <figure class="chart"><figcaption><b>H200 NVL · datacenter</b></figcaption>
+       <svg id="ch200" viewBox="0 0 560 200" role="img" aria-label="Compiled MatAnyone-E frames per second on H200 NVL by input resolution"></svg></figure>
+     </div>
+    </div>
+   </div>
+   <div class="tbox acc" style="margin-top:18px"><table><caption>Accuracy, MAD (×10³) ↓</caption>
+     <thead><tr><th>Method</th><th>VideoMatte HR</th><th>YouTubeMatte HR</th><th>CRGNN</th></tr></thead>
+     <tbody><tr><td>VideoMaMa</td><td>6.83</td><td>2.46</td><td>5.18</td></tr><tr><td>SAM2Matting</td><td>4.74</td><td>3.16</td><td>5.80</td></tr><tr><td>MatAnyone 2</td><td class="best">4.10</td><td class="best">1.61</td><td class="best">4.24</td></tr><tr class="me"><td>MatAnyone-E</td><td class="o">4.14</td><td class="o">1.62</td><td class="o">4.28</td></tr></tbody></table></div>
+
+  </div>
+ </section>
+
+ <section id="demo">
+  <h2>MatAnyone-E Demo</h2>
+  <div style="height:26px"></div>
+  <div class="card bleed demo">
+   <video src="static/videos/demo_1080p.mp4" poster="static/images/demo_poster.jpg" controls playsinline preload="metadata" aria-label="MatAnyone-E demo: speed comparison with MatAnyone 2 at 3840x2160 and results on high-resolution videos"></video>
+   <div class="row"><div class="rside"><a class="native" id="demo4k" href="static/videos/demo_4k.mp4" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.1v13.8c0 .8.9 1.3 1.6.8l10.4-6.9c.6-.4.6-1.3 0-1.7L9.6 4.3C8.9 3.8 8 4.3 8 5.1Z"/></svg><span>Watch in 4K (3840×2160)</span></a></div></div>
+  </div>
+ </section>
+
+ <section id="bibtex">
+  <h2>BibTeX</h2>
+  <pre>Coming soon.</pre>
+ </section>
+</main>
+<footer class="wrap">
+ <p>This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> and <a href="https://shangchenzhou.com/projects/upscale-a-video/" target="_blank" rel="noopener">Upscale-A-Video</a>. Thank you!</p>
+ <p>Footage is shown for demonstration only; all rights remain with their owners.</p>
+ <p class="visits"><img src="https://api.infinitescript.com/badgen/count?name=Shuyun-Wang/MatAnyone-E&amp;ltext=Visitors&amp;color=3977dd" alt="visitors"></p>
+</footer>
+
+<script src="static/js/index.js"></script>
+</body>
+</html>
