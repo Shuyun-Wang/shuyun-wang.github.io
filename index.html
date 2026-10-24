@@ -57,6 +57,42 @@
           width: 20%;
         }
       }
+      .experience-row {
+        align-items: center;
+      }
+      .experience-row.columns:not(:last-child) {
+        margin-bottom: 1rem!important;
+      }
+      .experience-row .image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 72px;
+        overflow: hidden;
+      }
+      .experience-row .image img {
+        max-height: 72px;
+        object-fit: contain;
+      }
+      .experience-row .image img[alt="Xiaomi EV"] {
+        max-height: none;
+      }
+      .experience-row .content p {
+        margin: 0;
+      }
+      @media screen and (max-width: 768px) {
+        .experience-row .image {
+          width: 130px;
+          height: 64px;
+        }
+      }
+      .slogon {
+        padding-bottom: 2em;
+        padding-top: 2em;
+        font-weight: 500;
+        font-size: 1em;
+        color: rgb(128, 129, 129);
+      }
 </style>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
 </head>
@@ -74,7 +110,6 @@
             <div class="content">
               <h2 style="margin-top: 1em">Shuyun Wang</h2>
               <p>
-                <b>Ph.D. Candidate</b><br/> 
                 The University of Queensland<br/> 
                 MMLab@NTU<br/> 
                 CSIRO Data61
@@ -102,10 +137,14 @@
               <p class="menu-label"><b>Quick Links</b></p>
               <ul class="menu-list">
                 <li><a href="#intro">About Me</a></li>
+                <li><a href="#experiences">Experiences</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#awards">Awards</a></li>
                 <li><a href="#services">Services</a></li>
               </ul>
+            </div>
+            <div class="slogon">
+              <p>Welcome to my homepage!</p>
             </div>
           </div>
 
@@ -128,9 +167,50 @@
             <a href="https://shangchenzhou.com/" target="_blank">Dr. Shangchen Zhou</a>.
             I also work as a Ph.D. student researcher at CSIRO's Data61, collaborating with <a href="https://people.csiro.au/W/D/Dadong-Wang" target="_blank">Dr. Dadong Wang</a>.
 
+            </p>
+            <p>
               My research interests lie in computer vision and generative models,
               with a particular focus on efficient low-level vision, compressed video processing, and world foundation models. 
             </p>
+
+            <!--Experiences-->
+            <h2 id="experiences" style="margin-bottom: 25px;">Experiences</h2>
+            <article class="columns experience-row">
+              <div class="column is-2">
+                <div class="image"><img src="images/misc/mmlab-ntu-logo.png" alt="MMLab@NTU" loading="lazy" style="width: 100%; height: auto;"></div>
+              </div>
+              <div class="column">
+                <div class="content"><p>
+                  <b>Visiting Ph.D. Student</b> | MMLab@NTU<br>
+                  Time: Apr 2026 – Present.<br>
+                  Advisors: <a href="https://www.mmlab-ntu.com/person/ccloy/" target="_blank" rel="noopener noreferrer">Prof. Chen Change Loy</a> and <a href="https://shangchenzhou.com/" target="_blank" rel="noopener noreferrer">Dr. Shangchen Zhou</a>.
+                </p></div>
+              </div>
+            </article>
+            <article class="columns experience-row">
+              <div class="column is-2">
+                <div class="image"><img src="images/misc/xiaomi-logo.png" alt="Xiaomi EV" loading="lazy" style="display: block; width: 100%; height: auto;"></div>
+              </div>
+              <div class="column">
+                <div class="content"><p>
+                  <b>Research Intern</b> | Xiaomi EV, Shanghai, China<br>
+                  Time: May 2025 – Dec 2025.<br>
+                  Advisor: <a href="https://haiyangs.cn/" target="_blank" rel="noopener noreferrer">Dr. Haiyang Sun</a>.
+                </p></div>
+              </div>
+            </article>
+            <article class="columns experience-row">
+              <div class="column is-2">
+                <div class="image"><img src="images/misc/ai2robotics-logo.png" alt="AI² Robotics" loading="lazy" style="width: 100%; height: auto; filter: brightness(0);"></div>
+              </div>
+              <div class="column">
+                <div class="content"><p>
+                  <b>Research Intern</b> | AI² Robotics, Beijing, China<br>
+                  Time: Jan 2024 – Sep 2024.<br>
+                  Advisors: <a href="https://scholar.google.com/citations?user=fWDoWsQAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Dr. Yandong Guo</a> and <a href="https://lu-m13.github.io/" target="_blank" rel="noopener noreferrer">Dr. Ming Lu</a>.
+                </p></div>
+              </div>
+            </article>
 
             <!--Publications-->
             <h2 id="publications">
